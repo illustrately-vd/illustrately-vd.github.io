@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="index.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alice&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navstyle">
+        <img src="logo.svg" class="logoimg" height="45vh" alt="" srcset="">
+        <a class="navbar-brand navTextSyle" href="#"> Illustrately .</a>
+    </nav>
+
+    <div class="spacer layer1"></div>
+
+    <div class="container">
+        <H2 class="addmyFont">Orders </H2>
+        <br>
+    
+            <table id="table"  class="table table-bordered table-dark"></table>
+        </div>
+    
+    
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"
+            integrity="sha256-2Pjr1OlpZMY6qesJM68t2v39t+lMLvxwpa8QlRjJroA=" crossorigin="anonymous"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+        
+        
+        <script type="text/javascript">
+            var public_spreadsheet_url = 
+            'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_OZAlzhRGgw1HCEWCIMULnjSLyNRkOuvBRmYNylObFOZq9YQW5sONvWhLQMQ0m5M_StlgJWb7HMl2/pub?output=csv';
+    
+            function init() {
+                Papa.parse(public_spreadsheet_url, {
+                    download: true,
+                    header: true,
+                    complete: showInfo
+                })
+            }
+    
+            window.addEventListener('DOMContentLoaded', init)
+    
+    
+            function showInfo(results) {
+                var html = "<tr><th>Timestamp</th><th>Order</th><th>Name</th><th>Address</th><th>Phone</th></tr><tr>";
+                var data = results.data;
+                console.log(data);
+                var data = data.filter(function (el, index) {
+                    return index >= data.length - 10;
+                });
+    
+                for (i = 0; i < data.length; i++) {
+                    for (prop in data[i]) {
+                        html += "<td>" + data[i][prop] + "</td>";
+                    }
+                    html += "</tr><tr>";
+                }
+                document.getElementById("table").innerHTML = html;
+            }
+    
+    
+        </script>
+    
+</body>
+</html>

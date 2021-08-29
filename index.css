@@ -1,0 +1,103 @@
+.navstyle{
+    background-color: #511a3b;
+}
+body{
+    /* background-color: #ffdbee; */
+    background-image: url('./background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.part1{
+    background-color: #ffd4ee;
+    opacity: 0.7;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #2d202f;
+    border-color: #000000;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #2d202f;
+    border-color: #000000;
+}
+
+.logoimg{
+    padding-left: 8px;
+    padding-right: 10px;
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+  }
+   
+  body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+   
+  body::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+  }
+
+.navTextSyle{
+    color: white;
+    font-family: 'DM Serif Display', serif;
+    font-size: 10vh;   
+    padding: 5px; 
+}
+
+.navTextSyle:hover{
+    color: white;
+}
+
+.titlecard{
+    padding-top: 20vh;
+}
+
+.addmyFont{
+    font-family: 'Alice', serif;
+}
+
+.addmyFont2{
+    font-family: 'Alice', serif;
+    font-size: 30px;
+}
+
+.spacer{
+    aspect-ratio: 900/100;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.layer1{
+    background-image: url('./wave.svg');
+}
+
+.layer2{
+    background-image: url('./wave-down.svg');
+}
+
+@media only screen and (max-width: 600px) {
+    .navTextSyle{
+        color: white;
+        font-family: 'DM Serif Display', serif;
+        font-size: 2rem;    
+    }    
+}
+
+
+.blobs{
+    position:relative;
+    transform:translateY(-35%);
+    opacity: 0.1;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
